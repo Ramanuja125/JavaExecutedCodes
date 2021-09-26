@@ -1,0 +1,58 @@
+import java.util.*;
+// input- Ramesh is a good person
+//output- person good a is Ramanuja
+public class ReverseOfWordsAndChechUnique {
+    public static String reverse(String str){
+        String ans="";
+        String temp="";
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i)!=' '){
+                temp=str.charAt(i)+temp; // temp if put before str.charAt we get reversal of the sentence not reversal of big sentence- out for ex-nosrep doog a si ajunamaR 
+            }
+            else{
+                
+                ans=" " + temp+ans;
+                temp="";
+            }
+        }
+        ans=temp+ans;
+        return ans;
+    }
+
+    
+
+    public static int checkUnique(String str){
+        String ans="";
+        String temp="";
+        HashMap <String,Integer> map=new HashMap<String,Integer>();
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i)!=' '){
+                temp+=str.charAt(i); // temp if put before str.charAt we get reversal of the sentence not reversal of big sentence- out for ex-nosrep doog a si ajunamaR 
+            }
+            else{
+                if(map.get(temp)==null){
+                    map.put(temp, 1);
+                    ans+=" "+temp;
+                }
+
+               
+                temp="";
+            }
+        } if(map.get(temp)==null){
+            map.put(temp, 1);
+            ans+=" "+temp;
+        }
+        System.out.println(ans);
+        return map.size();
+    }
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter String");
+        String str=sc.nextLine();
+        String unique=str;
+        System.out.print(reverse(str));
+        System.out.println();
+        System.out.println(checkUnique(unique));
+        sc.close();
+    }
+}
