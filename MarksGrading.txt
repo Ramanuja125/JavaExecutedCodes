@@ -1,0 +1,33 @@
+to grade marks according to the marks given input 
+
+30-50- Average,
+51-60 - good,
+61-80 - excellent,
+81-100 - outstanding.
+  
+constrains marks inputing >30 and <100
+  
+  import java.util.Scanner;
+
+public class Marks{
+    public static void checkMarks(int marks){
+        if(marks>=30 && marks<=50)
+        System.out.println("Average");
+        else if(marks>=51 && marks<=60)
+        System.out.println("Good");
+        else if(marks>=61 && marks<=80)
+        System.out.println("Excellent");
+        else if(marks>=81 && marks<=80)
+        System.out.println("Outstanding");
+        else
+        System.out.print("Invalid");
+        }
+    
+        public static void main(String[] args) {
+            Scanner sc=new Scanner(System.in);
+            int marks=sc.nextInt();
+            
+            checkMarks(marks);
+            sc.close();
+        }
+    }
